@@ -8,7 +8,7 @@ if(empty($_POST['newDate']) || empty($_POST['newTask']))
 else{
     $db = ConnectionPDO::getInstance();
     $insStmt = $db->prepare('INSERT INTO tasks (task_datetime, task, id_user) VALUES (:datetime, :task, :idUser)');
-    $insStmt->execute(array(':datetime' => date('Y-m-d H:i', strtotime($_POST['newDate'])), ':task' => $_POST['newTask'],
+    $insStmt->execute(array(':datetime' => strtotime($_POST['newDate']), ':task' => $_POST['newTask'],
         ':idUser' => $_SESSION['userId']));
 }
 

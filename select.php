@@ -18,7 +18,7 @@ $output .= '
     {
         $output .= '
         <tr data-id="'.$row["id_task"].'">
-            <td><input name="date" type="text" value="'.date("Y-m-d H:i", strtotime($row['task_datetime'])).'"></td>
+            <td><input name="date" type="text" value="'.date("Y-m-d H:i", $row['task_datetime']).'"></td>
             <td><input name="task" type="text" value="'.$row["task"].'"></td>
             <td id="btn-upd"><button>Update</button></td>
             <td id="btn-del"><button>Delete</button></td>
