@@ -7,8 +7,8 @@ if(empty($_POST['id']))
 }
 else {
     $db = ConnectionPDO::getInstance();
-    $stmt = $db->prepare('DELETE FROM tasks WHERE id_task = :id');
-    $stmt->execute([$_POST['id']]);
+    $stmt = $db->prepare('DELETE FROM tasks WHERE id_task = :id AND id_user = :idUser');
+    $stmt->execute(array('id' => [$_POST['id']], 'isUser' => $_SESSION['userId']));
 }
 
 
